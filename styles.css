@@ -122,9 +122,11 @@ nav {
 .nav__left.active,
 .nav__right.active {
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-/* Hide hamburger menu on larger screens */
+/* Show navigation links and hide hamburger menu on larger screens */
 @media (min-width: 768px) {
   .hamburger {
     display: none;
@@ -133,24 +135,15 @@ nav {
   .nav__left,
   .nav__right {
     display: flex;
+    flex-direction: row;
   }
 }
 
-.letter-e {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 40rem;
-  line-height: 40rem;
-  font-weight: 900;
-  color: var(--primary-color);
-}
-
+/* Responsive image and text */
 .container img {
   position: absolute;
   width: 100%;
-  max-width: 200px;
+  max-width: 150px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -161,51 +154,52 @@ nav {
   position: absolute;
   top: 50%;
   left: 50%;
-  font-size: 5rem;
+  font-size: 3rem;
   color: var(--white);
-  letter-spacing: 25px;
+  letter-spacing: 15px;
 }
 
 .text__left {
-  transform: translate(calc(-50% - 250px), -50%);
+  transform: translate(calc(-50% - 150px), -50%);
   color: rgb(231, 227, 227);
 }
 
 .text__right {
-  transform: translate(calc(-50% + 250px), -50%);
+  transform: translate(calc(-50% + 150px), -50%);
 }
 
-.container .explore {
+.container .explore,
+.container .print,
+.container .catalog {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, calc(-50% + 225px));
-  color: var(--text-dark);
-  background-color: var(--white);
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
   padding: 1rem 2rem;
   border: none;
   font-weight: 600;
   cursor: pointer;
 }
 
+.container .explore {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% + 150px));
+  color: var(--text-dark);
+  background-color: var(--white);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
+}
+
 .container .print {
-  position: absolute;
   top: 50%;
   right: 0;
   transform: translate(0, -50%) rotate(90deg);
-  padding: 1rem 2rem;
   color: var(--white);
   background-color: transparent;
   border: 1px solid var(--white);
 }
 
 .container .catalog {
-  position: absolute;
   top: 25%;
   left: 0;
   transform: translate(0, -50%) rotate(-90deg);
-  padding: 1rem 2rem;
   color: var(--text-dark);
   background-color: transparent;
   border: 1px solid var(--text-dark);
@@ -215,36 +209,34 @@ nav {
   position: absolute;
   top: 50%;
   left: 50%;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
-.container h5::after {
-  position: absolute;
-  content: "";
-  height: 1px;
-  width: 100px;
-  top: 50%;
+.feature-1,
+.feature-2,
+.feature-3,
+.feature-4 {
+  color: var(--text-dark);
+  transform: translate(-50%, -50%);
 }
 
 .feature-1 {
-  color: var(--text-dark);
-  transform: translate(calc(-50% - 300px), calc(-50% - 200px));
+  transform: translate(calc(-50% - 200px), calc(-50% - 100px));
 }
 
 .feature-2 {
   color: var(--white);
-  transform: translate(calc(-50% + 300px), calc(-50% - 200px));
+  transform: translate(calc(-50% + 200px), calc(-50% - 100px));
 }
 
 .feature-3 {
-  color: var(--text-dark);
-  transform: translate(calc(-50% - 300px), calc(-50% + 200px));
+  transform: translate(calc(-50% - 200px), calc(-50% + 100px));
 }
 
 .feature-4 {
   color: var(--white);
-  transform: translate(calc(-50% + 300px), calc(-50% + 200px));
+  transform: translate(calc(-50% + 200px), calc(-50% + 100px));
 }
 
 .feature-1::after,
@@ -318,3 +310,4 @@ nav {
 .footer__links a:hover {
   color: var(--primary-color);
 }
+
