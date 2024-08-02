@@ -7,8 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   hamburger.addEventListener('click', () => {
     navLeft.classList.toggle('active');
     navRight.classList.toggle('active');
-    // Toggle hamburger icon (optional)
-    hamburger.classList.toggle('active');
+    hamburger.classList.toggle('active'); // Optional: Add an active class to change hamburger icon on click
   });
 
   // ScrollReveal options and animations
@@ -16,53 +15,64 @@ document.addEventListener("DOMContentLoaded", function () {
     distance: "50px",
     origin: "bottom",
     duration: 1000,
-    easing: 'ease-in-out'
+    mobile: true, // Ensure ScrollReveal works on mobile
+    reset: true, // Reset animations on scroll back up
   };
 
-  ScrollReveal().reveal(".letter-e", {
-    duration: 1000,
-    delay: 1000,
-    ...scrollRevealOption
-  });
-  ScrollReveal().reveal("img", {
-    duration: 1000,
-    delay: 1500,
-    ...scrollRevealOption
-  });
-  ScrollReveal().reveal(".text__left", {
-    ...scrollRevealOption,
-    origin: "right",
-    delay: 2000,
-  });
-  ScrollReveal().reveal(".text__right", {
-    ...scrollRevealOption,
-    origin: "left",
-    delay: 2000,
-  });
-  ScrollReveal().reveal(".explore", {
-    duration: 1000,
-    delay: 2500,
-    ...scrollRevealOption
-  });
-  ScrollReveal().reveal("h5", {
-    duration: 1000,
-    interval: 500,
-    delay: 3000,
-    ...scrollRevealOption
-  });
-  ScrollReveal().reveal(".catalog", {
-    duration: 1000,
-    delay: 5000,
-    ...scrollRevealOption
-  });
-  ScrollReveal().reveal(".print", {
-    duration: 1000,
-    delay: 5500,
-    ...scrollRevealOption
-  });
-  ScrollReveal().reveal(".footer p", {
-    duration: 1000,
-    delay: 7000,
-    ...scrollRevealOption
+  // Function to handle ScrollReveal on specific elements
+  function revealElements() {
+    ScrollReveal().reveal(".container .letter-e", {
+      duration: 1000,
+      delay: 500,
+    });
+    ScrollReveal().reveal(".container img.logo-img", {
+      duration: 1000,
+      delay: 1000,
+    });
+    ScrollReveal().reveal(".container .text__left", {
+      ...scrollRevealOption,
+      origin: "right",
+      delay: 1500,
+    });
+    ScrollReveal().reveal(".container .text__right", {
+      ...scrollRevealOption,
+      origin: "left",
+      delay: 1500,
+    });
+    ScrollReveal().reveal(".container .explore", {
+      duration: 1000,
+      delay: 2000,
+    });
+    ScrollReveal().reveal(".container h5", {
+      duration: 1000,
+      interval: 300,
+      delay: 2500,
+    });
+    ScrollReveal().reveal(".container .catalog", {
+      duration: 1000,
+      delay: 3500,
+    });
+    ScrollReveal().reveal(".container .print", {
+      duration: 1000,
+      delay: 4000,
+    });
+    ScrollReveal().reveal(".footer p", {
+      duration: 1000,
+      delay: 5000,
+    });
+    ScrollReveal().reveal(".footer__links", {
+      duration: 1000,
+      delay: 5500,
+    });
+  }
+
+  // Call the function to set up ScrollReveal
+  revealElements();
+
+  // Add event listener for resizing
+  window.addEventListener('resize', () => {
+    // Reset ScrollReveal for resize events if needed
+    ScrollReveal().destroy(); // Destroy previous ScrollReveal
+    revealElements(); // Reinitialize ScrollReveal
   });
 });
