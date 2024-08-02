@@ -69,12 +69,14 @@ nav {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .nav__wrapper {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .nav__links {
@@ -82,6 +84,7 @@ nav {
   display: flex;
   align-items: center;
   gap: 2rem;
+  margin: 0;
 }
 
 .nav__links a {
@@ -124,9 +127,15 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--white);
+  width: 100%;
+  padding: 1rem;
 }
 
-/* Show navigation links and hide hamburger menu on larger screens */
+/* Hide hamburger menu on larger screens */
 @media (min-width: 768px) {
   .hamburger {
     display: none;
@@ -136,14 +145,26 @@ nav {
   .nav__right {
     display: flex;
     flex-direction: row;
+    position: static;
+    background-color: transparent;
   }
 }
 
-/* Responsive image and text */
+.letter-e {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40rem;
+  line-height: 40rem;
+  font-weight: 900;
+  color: var(--primary-color);
+}
+
 .container img {
   position: absolute;
   width: 100%;
-  max-width: 150px;
+  max-width: 200px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -154,18 +175,18 @@ nav {
   position: absolute;
   top: 50%;
   left: 50%;
-  font-size: 3rem;
+  font-size: 5rem;
   color: var(--white);
-  letter-spacing: 15px;
+  letter-spacing: 25px;
 }
 
 .text__left {
-  transform: translate(calc(-50% - 150px), -50%);
+  transform: translate(calc(-50% - 250px), -50%);
   color: rgb(231, 227, 227);
 }
 
 .text__right {
-  transform: translate(calc(-50% + 150px), -50%);
+  transform: translate(calc(-50% + 250px), -50%);
 }
 
 .container .explore,
@@ -181,7 +202,7 @@ nav {
 .container .explore {
   top: 50%;
   left: 50%;
-  transform: translate(-50%, calc(-50% + 150px));
+  transform: translate(-50%, calc(-50% + 225px));
   color: var(--text-dark);
   background-color: var(--white);
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
@@ -209,34 +230,36 @@ nav {
   position: absolute;
   top: 50%;
   left: 50%;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 500;
 }
 
-.feature-1,
-.feature-2,
-.feature-3,
-.feature-4 {
-  color: var(--text-dark);
-  transform: translate(-50%, -50%);
+.container h5::after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 100px;
+  top: 50%;
 }
 
 .feature-1 {
-  transform: translate(calc(-50% - 200px), calc(-50% - 100px));
+  color: var(--text-dark);
+  transform: translate(calc(-50% - 300px), calc(-50% - 200px));
 }
 
 .feature-2 {
   color: var(--white);
-  transform: translate(calc(-50% + 200px), calc(-50% - 100px));
+  transform: translate(calc(-50% + 300px), calc(-50% - 200px));
 }
 
 .feature-3 {
-  transform: translate(calc(-50% - 200px), calc(-50% + 100px));
+  color: var(--text-dark);
+  transform: translate(calc(-50% - 300px), calc(-50% + 200px));
 }
 
 .feature-4 {
   color: var(--white);
-  transform: translate(calc(-50% + 200px), calc(-50% + 100px));
+  transform: translate(calc(-50% + 300px), calc(-50% + 200px));
 }
 
 .feature-1::after,
@@ -264,6 +287,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .footer p {
@@ -311,3 +335,65 @@ nav {
   color: var(--primary-color);
 }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .letter-e {
+    font-size: 20rem;
+  }
+
+  .container h4 {
+    font-size: 3rem;
+    letter-spacing: 10px;
+  }
+
+  .container img {
+    max-width: 150px;
+  }
+
+  .container .explore,
+  .container .print,
+  .container .catalog {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .container h5 {
+    font-size: 1rem;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .letter-e {
+    font-size: 15rem;
+  }
+
+  .container h4 {
+    font-size: 2rem;
+    letter-spacing: 5px;
+  }
+
+  .container img {
+    max-width: 120px;
+  }
+
+  .container .explore,
+  .container .print,
+  .container .catalog {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .container h5 {
+    font-size: 0.9rem;
+  }
+}
